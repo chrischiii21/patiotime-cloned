@@ -4,6 +4,6 @@ import viteLogo from '/vite.svg'
 import { initCarousel, initEventCarousel } from './js/carousel.js'
 import { initScrollEffect } from './js/header.js';
 
-initScrollEffect();
+
 initCarousel();
 initEventCarousel();
