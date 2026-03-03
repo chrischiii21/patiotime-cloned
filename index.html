@@ -123,12 +123,11 @@
       </div>
     </section>
     <!--about us section-->
-    <section">
+    <section>
       <!--main container-->
       <div id="container">
         <!--image 1-->
-        <div
-          class="grid grid-cols-2 lg:grid-cols-3 gap-0 lg:gap-12 items-center justify-center pt-[120px] pb-[70px] w-full">
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-0 lg:gap-12 items-center justify-center   w-full">
           <div class="col-span-1 lg:col-span-1 order-1 flex justify-end overflow-hidden">
             <img src="./src/img/img-16.jpg" alt="Patio Interior"
               class="w-full lg:max-w-85 h-75 md:h-112.5 lg:h-120 object-cover transition-transform duration-700 ease-in-out hover:scale-105">
@@ -166,19 +165,48 @@
           </div>
         </div>
       </div>
-      </section>
-      <!--best experience-->
-      <section class="relative w-full h-[278px] xl:h-[669px] overflow-hidden">
-        <img src="./src/img/section-bg-3.jpg" class="absolute inset-0 w-full h-full object-cover scale-130"
-          alt="Background">
+    </section>
+    <!--best experience-->
+    <section class="relative w-full h-[278px] xl:h-[669px] overflow-hidden">
+      <!--experience background image-->
+      <img src="./src/img/section-bg-3.jpg" class="absolute inset-0 w-full h-full object-cover scale-130"
+        alt="Background">
+      <!--overlay-->
+      <div class="absolute inset-0 bg-black/40"></div>
+      <!--experience text-->
+      <div id="container" class="absolute inset-0 z-10 flex items-center justify-center">
+        <img src="./src/img/experience-text-1440x374.png" alt="The Best Experience text"
+          class="w-auto h-auto max-w-[90%] max-h-[80%] object-contain">
+      </div>
+    </section>
+    <!--first carousel-->
+    <section>
+      <div id="container">
+        <div class="relative group overflow-hidden pt-[120px] pb-[70px]">
+          <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out">
+            <div>
+              <img src="./src/img/slider/1.jpg" class="px-8">
+            </div>
+            <div>
+              <img src=" ./src/img/slider/2.jpg" class="px-8">
+            </div>
+            <div>
+              <img src="./src/img/slider/3.jpg" class="px-8">
+            </div>
+            <div>
+              <img src="./src/img/slider/4.jpg" class="px-8">
+            </div>
+            <div>
+              <img src="./src/img/slider/5.jpg" class="px-8">
+            </div>
+            <div>
+              <img src="./src/img/slider/6.jpg" class="px-8">
+            </div>
+          </div>
 
-        <div class="absolute inset-0 bg-black/40"></div>
-
-        <div id="container" class="absolute inset-0 z-10 flex items-center justify-center">
-          <img src="./src/img/experience-text-1440x374.png" alt="The Best Experience text"
-            class="w-auto h-auto max-w-[90%] max-h-[80%] object-contain">
         </div>
-      </section>
+      </div>
+    </section>
   </main>
   <script type="module" src="/src/main.js"></script>
 </body>
