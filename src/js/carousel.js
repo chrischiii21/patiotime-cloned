@@ -10,12 +10,11 @@ export function initCarousel() {
     const totalOriginalSlides = slides.length;
     const intervalTime = 4000;
 
-    // Constant for logic (clones allow for the "infinite" feel)
     const cloneCount = 4;
     let currentIndex = cloneCount;
     let autoPlayInterval;
 
-    // 1. Setup Clones
+    //cloning setup
     for (let i = 0; i < cloneCount; i++) {
         const startClone = slides[i].cloneNode(true);
         const endClone = slides[totalOriginalSlides - 1 - i].cloneNode(true);
@@ -25,7 +24,6 @@ export function initCarousel() {
 
     const getVisibleSlides = () => (window.innerWidth >= 768 ? 4 : 1);
 
-    // 2. The "Master" Update Function
     const updateCarousel = (isAnimated = true) => {
         const visibleSlides = getVisibleSlides();
         const slideWidth = 100 / visibleSlides;
@@ -33,11 +31,11 @@ export function initCarousel() {
         track.style.transition = isAnimated ? "transform 0.5s ease-in-out" : "none";
         track.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
 
-        // Calculate which dot should be active
+        //active dots
         let activeIndex = (currentIndex - cloneCount) % totalOriginalSlides;
         if (activeIndex < 0) activeIndex += totalOriginalSlides;
 
-        // Sync Dots: Solid white, scale active
+        //sync dots
         dots.forEach((dot, i) => {
             if (i === activeIndex) {
                 dot.classList.add('scale-150', 'bg-white');
@@ -49,7 +47,7 @@ export function initCarousel() {
         });
     };
 
-    // 3. The "Infinite" Reset
+    //infinite scroll
     track.addEventListener('transitionend', () => {
         if (currentIndex >= totalOriginalSlides + cloneCount) {
             currentIndex = cloneCount;
@@ -69,7 +67,7 @@ export function initCarousel() {
         autoPlayInterval = setInterval(nextSlide, intervalTime);
     };
 
-    // 4. Event Listeners (Manual & Automatic synced)
+    //event listener
     nextBtn.addEventListener('click', () => { nextSlide(); resetAutoplay(); });
     prevBtn.addEventListener('click', () => { prevSlide(); resetAutoplay(); });
 
@@ -83,7 +81,7 @@ export function initCarousel() {
 
     window.addEventListener('resize', () => updateCarousel(false));
 
-    // Initialize
+    //init
     updateCarousel(false);
     autoPlayInterval = setInterval(nextSlide, intervalTime);
 }
@@ -96,16 +94,15 @@ export function initEventCarousel() {
 
     let currentIndex = 0;
     let autoPlayInterval;
-    const intervalTime = 5000; // 5 seconds per flash
+    const intervalTime = 5000; //5 seconds interval
 
-    // Function to change the visual state
     function showSlide(index) {
-        // Reset index if out of bounds (Infinite loop)
+        //reset index
         if (index >= slides.length) currentIndex = 0;
         else if (index < 0) currentIndex = slides.length - 1;
         else currentIndex = index;
 
-        // Update Images
+        //update images
         slides.forEach((slide, i) => {
             if (i === currentIndex) {
                 slide.classList.replace('opacity-0', 'opacity-100');
@@ -114,7 +111,7 @@ export function initEventCarousel() {
             }
         });
 
-        // Update Dots styling
+        //update dots styles
         dots.forEach((dot, i) => {
             if (i === currentIndex) {
                 dot.classList.add('bg-white', 'w-2.5', 'h-2.5');
@@ -137,7 +134,7 @@ export function initEventCarousel() {
         startAutoPlay();
     }
 
-    // Event Listeners
+    //event listeners
     nextBtn.addEventListener('click', () => {
         showSlide(currentIndex + 1);
         resetTimer();
@@ -155,6 +152,6 @@ export function initEventCarousel() {
         });
     });
 
-    // Initialize
+    //init
     startAutoPlay();
 }
