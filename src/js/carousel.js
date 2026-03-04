@@ -41,7 +41,7 @@ export function initCarousel() {
                 dot.classList.add('scale-150', 'bg-white');
                 dot.classList.remove('scale-100', 'opacity-30'); // Cleaning up old classes
             } else {
-                dot.classList.add('scale-100', 'bg-white');
+                dot.classList.add('scale-100', 'bg-neutral-600');
                 dot.classList.remove('scale-150');
             }
         });
@@ -88,7 +88,7 @@ export function initCarousel() {
 
 export function initEventCarousel() {
     const slides = document.querySelectorAll('.carousel-slide');
-    const dots = document.querySelectorAll('.carousel-dot');
+    const dots = document.querySelectorAll('.event-carousel-dot');
     const prevBtn = document.getElementById('eventPrevBtn');
     const nextBtn = document.getElementById('eventNextBtn');
 
@@ -114,11 +114,11 @@ export function initEventCarousel() {
         //update dots styles
         dots.forEach((dot, i) => {
             if (i === currentIndex) {
-                dot.classList.add('bg-white', 'w-2.5', 'h-2.5');
-                dot.classList.remove('bg-neutral-600', 'w-2', 'h-2');
+                dot.classList.add('bg-white', 'scale-150', 'opacity-100');
+                dot.classList.remove('bg-neutral-600', 'opacity-30', 'scale-100');
             } else {
-                dot.classList.remove('bg-white', 'w-2.5', 'h-2.5');
-                dot.classList.add('bg-neutral-600', 'w-2', 'h-2');
+                dot.classList.add('bg-neutral-600', 'opacity-30', 'scale-100');
+                dot.classList.remove('bg-white', 'scale-150', 'opacity-100');
             }
         });
     }
@@ -153,5 +153,6 @@ export function initEventCarousel() {
     });
 
     //init
+    showSlide(0);
     startAutoPlay();
 }
