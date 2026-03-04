@@ -35,3 +35,38 @@ export function initScrollEffect() {
 
     observer.observe(heroSection);
 }
+
+export function initNavScrollHide() {
+    const header = document.querySelector('header');
+    if (!header) return;
+
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    const updateNavPosition = () => {
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            // Scrolling down & past 100px
+            header.style.transform = 'translateY(-100%)';
+        } else {
+            // Scrolling up or at top
+            header.style.transform = 'translateY(0)';
+        }
+
+        lastScrollY = currentScrollY;
+        ticking = false;
+    };
+
+    const onScroll = () => {
+        if (!ticking) {
+            window.requestAnimationFrame(updateNavPosition);
+            ticking = true;
+        }
+    };
+
+    // Add transition to header
+    header.style.transition = 'transform 0.3s ease-in-out';
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+}

@@ -1,10 +1,12 @@
 import './style.css'
 import { initCarousel, initEventCarousel } from './js/carousel.js'
-import { initScrollEffect } from './js/header.js';
+import { initScrollEffect, initNavScrollHide } from './js/header.js';
 import { initScrollReveal } from './js/scroll.js';
 
 //init the hiding of top bar when scrolled
 initScrollEffect();
+//init nav hide/show on scroll
+initNavScrollHide();
 //init the cards reveal animation when scrolled
 initScrollReveal();
 //init Carousel scroll effect
