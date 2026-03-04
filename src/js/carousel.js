@@ -38,11 +38,11 @@ export function initCarousel() {
         //sync dots
         dots.forEach((dot, i) => {
             if (i === activeIndex) {
-                dot.classList.add('scale-150', 'bg-white');
-                dot.classList.remove('scale-100', 'opacity-30'); // Cleaning up old classes
+                dot.classList.add('scale-150', 'bg-white', 'opacity-100');
+                dot.classList.remove('scale-100', 'opacity-30', 'bg-neutral-600');
             } else {
-                dot.classList.add('scale-100', 'bg-neutral-600');
-                dot.classList.remove('scale-150');
+                dot.classList.add('scale-100', 'opacity-30', 'bg-neutral-600');
+                dot.classList.remove('scale-150', 'bg-white', 'opacity-100');
             }
         });
     };
