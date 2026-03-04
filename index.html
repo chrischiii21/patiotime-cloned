@@ -187,22 +187,10 @@
     <!--first carousel-->
     <section>
       <div id="container">
-        <div class="relative flex items-center justify-between overflow-hidden pt-[120px] pb-[50px] px-2 sm:px-4">
+        <div class="relative overflow-hidden pt-[120px] pb-[50px]">
 
-          <button id="prevBtn" aria-label="Previous Slide" onclick="prevSlide()"
-            class="group z-20 flex items-center justify-center cursor-pointer p-0.5 sm:p-1 md:p-2 shrink-0 focus:outline-none">
-            <div
-              class="relative flex items-center justify-start w-6 sm:w-8 md:w-12 lg:w-16 h-6 sm:h-8 md:h-12 opacity-50 group-hover:opacity-100 transition-opacity duration-300">
-              <div
-                class="absolute left-0 w-full h-0.5 bg-white origin-left transition-transform duration-300 group-hover:rotate-[40deg]">
-              </div>
-              <div
-                class="absolute left-0 w-full h-0.5 bg-white origin-left transition-transform duration-300 group-hover:-rotate-[40deg]">
-              </div>
-            </div>
-          </button>
-
-          <div class="overflow-hidden flex-1 mx-1 sm:mx-2 md:mx-4">
+          <!-- Carousel Track -->
+          <div class="overflow-hidden w-full px-2 sm:px-4">
             <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out items-center">
               <div
                 class="reveal-card min-w-full md:min-w-[25%] flex-shrink-0 flex justify-center px-2 sm:px-4 md:px-[32px]">
@@ -243,10 +231,24 @@
             </div>
           </div>
 
-          <button id="nextBtn" aria-label="Next Slide" onclick="nextSlide()"
-            class="group z-20 flex items-center justify-center cursor-pointer p-0.5 sm:p-1 md:p-2 shrink-0 focus:outline-none">
+          <!-- Navigation Buttons - Overlapping -->
+          <button id="prevBtn" aria-label="Previous Slide"
+            class="group absolute left-2 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 flex items-center justify-center cursor-pointer p-2 md:p-3 focus:outline-none rounded-full transition-all duration-300">
             <div
-              class="relative flex items-center justify-end w-6 sm:w-8 md:w-12 lg:w-16 h-6 sm:h-8 md:h-12 opacity-50 group-hover:opacity-100 transition-opacity duration-300">
+              class="relative flex items-center justify-start w-6 sm:w-8 md:w-10 h-6 sm:h-8 md:h-10 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+              <div
+                class="absolute left-0 w-full h-0.5 bg-white origin-left transition-transform duration-300 group-hover:rotate-[40deg]">
+              </div>
+              <div
+                class="absolute left-0 w-full h-0.5 bg-white origin-left transition-transform duration-300 group-hover:-rotate-[40deg]">
+              </div>
+            </div>
+          </button>
+
+          <button id="nextBtn" aria-label="Next Slide"
+            class="group absolute right-2 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 flex items-center justify-center cursor-pointer p-2 md:p-3 focus:outline-none rounded-full transition-all duration-300">
+            <div
+              class="relative flex items-center justify-end w-6 sm:w-8 md:w-10 h-6 sm:h-8 md:h-10 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
               <div
                 class="absolute right-0 w-full h-0.5 bg-white origin-right transition-transform duration-300 group-hover:-rotate-[40deg]">
               </div>
@@ -255,6 +257,7 @@
               </div>
             </div>
           </button>
+
         </div>
         <div id="dots-container" class="flex justify-center items-center space-x-3 pb-[70px]">
           <button aria-label="Go to Image 1"

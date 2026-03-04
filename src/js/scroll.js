@@ -13,7 +13,11 @@ export function initScrollReveal() {
         });
     }, observerOptions);
 
-    //target elements
-    const cards = document.querySelectorAll('.reveal-card');
+    //target elements - exclude carousel slides
+    const cards = document.querySelectorAll('.reveal-card:not(#carousel-track .reveal-card)');
     cards.forEach((card) => observer.observe(card));
+
+    // Make carousel slides visible immediately
+    const carouselSlides = document.querySelectorAll('#carousel-track .reveal-card');
+    carouselSlides.forEach((slide) => slide.classList.add('active'));
 }
